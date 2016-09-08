@@ -11,9 +11,12 @@
 
 @interface Player : NSObject
 
-@property (nonatomic, assign) int health;
-@property (nonatomic, assign) int wealth;
+@property (nonatomic) NSInteger health;
+@property (nonatomic) NSInteger wealth;
+@property (nonatomic) NSInteger distanceMoved;
 
 @property (nonatomic, strong) PathSegment *currentPosition;
+
+-(instancetype)init;
 
 @end

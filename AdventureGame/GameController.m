@@ -14,9 +14,13 @@
         // generate game path
         
         _start = [self generatePath];
+        _player = [[Player alloc] init];
+        
     }
     return self;
 }
+
+
 
 -(PathSegment *)generatePath {
     
@@ -103,5 +107,51 @@
         }
     }
 }
+
+-(void)playerStatus{
+    
+    NSInteger health = self.player.health;
+    NSInteger wealth = self.player.wealth;
+    NSInteger distanceMoved = self.player.distanceMoved;
+    
+    NSLog(@"\n Health %ld --- Wealth %ld --- Distance Travelled %ld\n", health, wealth, distanceMoved);
+    
+    if (self.player.currentPosition != nil) {
+        if (self.player.currentPosition.mainRoad != nil && self.player.currentPosition.sideBranch != nil) {
+            NSLog(@"you can move down the main road or the side branch");
+        }
+        if (self.player.currentPosition.mainRoad != nil) {
+            NSLog(@"you can move down the main road");
+        }
+        if (self.player.currentPosition.sideBranch != nil) {
+             NSLog(@"you can move down the side branch");
+        }
+    }
+    
+    
+}
+
+-(NSInteger)getHealth {
+    
+    return self.player.health;
+    
+}
+
+-(NSInteger)getWealth {
+    
+    return self.player.wealth;
+    
+}
+
+
+-(NSInteger)getDistanceMoved {
+    
+    return self.player.distanceMoved;
+    
+}
+
+
+
+
 
 @end
