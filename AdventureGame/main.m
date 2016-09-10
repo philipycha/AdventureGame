@@ -13,6 +13,28 @@ int main(int argc, const char * argv[]) {
         [game printPath];
         
         
+        while (YES) {
+            
+            [game playerStatus];
+            
+            if ([game playerWin]) {
+                NSLog(@"YOU WON! CONGRATULATIONS!");
+                break;
+                
+            }
+            
+            if (![game playerAlive]) {
+                NSLog(@"You DIED!!!");
+                break;
+                
+            }
+            
+            [game askPlayerMove];
+            
+            
+            
+        }
+        
     }
     return 0;
 }

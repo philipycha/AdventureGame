@@ -18,7 +18,6 @@
         _health = 100;
         _wealth = 0;
         _distanceMoved = 0;
-        //haven't included method to increment distance moved yet
         
     return self;
 }

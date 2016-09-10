@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152FC62C1D84BAA7008F0797 /* PathSegmentContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 152FC62B1D84BAA7008F0797 /* PathSegmentContent.m */; };
 		15D847F71D80FE0E00D6BE22 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D847F61D80FE0E00D6BE22 /* Player.m */; };
+		15D847FA1D812E1D00D6BE22 /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D847F91D812E1D00D6BE22 /* InputCollector.m */; };
 		8B8993111B6EAB3700D062A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8993101B6EAB3700D062A2 /* main.m */; };
 		8B8993191B6EAB4E00D062A2 /* PathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8993181B6EAB4E00D062A2 /* PathSegment.m */; };
 		8B89931C1B6EB0DD00D062A2 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B89931B1B6EB0DD00D062A2 /* GameController.m */; };
@@ -26,8 +28,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		152FC62A1D84BAA7008F0797 /* PathSegmentContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathSegmentContent.h; sourceTree = "<group>"; };
+		152FC62B1D84BAA7008F0797 /* PathSegmentContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathSegmentContent.m; sourceTree = "<group>"; };
 		15D847F51D80FE0E00D6BE22 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		15D847F61D80FE0E00D6BE22 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		15D847F81D812E1D00D6BE22 /* InputCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCollector.h; sourceTree = "<group>"; };
+		15D847F91D812E1D00D6BE22 /* InputCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCollector.m; sourceTree = "<group>"; };
 		8B89930D1B6EAB3700D062A2 /* AdventureGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdventureGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8993101B6EAB3700D062A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B8993171B6EAB4E00D062A2 /* PathSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathSegment.h; sourceTree = "<group>"; };
@@ -67,10 +73,14 @@
 			isa = PBXGroup;
 			children = (
 				8B8993101B6EAB3700D062A2 /* main.m */,
+				152FC62A1D84BAA7008F0797 /* PathSegmentContent.h */,
+				152FC62B1D84BAA7008F0797 /* PathSegmentContent.m */,
 				8B8993171B6EAB4E00D062A2 /* PathSegment.h */,
 				8B8993181B6EAB4E00D062A2 /* PathSegment.m */,
 				8B89931A1B6EB0DD00D062A2 /* GameController.h */,
 				8B89931B1B6EB0DD00D062A2 /* GameController.m */,
+				15D847F81D812E1D00D6BE22 /* InputCollector.h */,
+				15D847F91D812E1D00D6BE22 /* InputCollector.m */,
 				15D847F51D80FE0E00D6BE22 /* Player.h */,
 				15D847F61D80FE0E00D6BE22 /* Player.m */,
 			);
@@ -135,6 +145,8 @@
 			files = (
 				15D847F71D80FE0E00D6BE22 /* Player.m in Sources */,
 				8B89931C1B6EB0DD00D062A2 /* GameController.m in Sources */,
+				152FC62C1D84BAA7008F0797 /* PathSegmentContent.m in Sources */,
+				15D847FA1D812E1D00D6BE22 /* InputCollector.m in Sources */,
 				8B8993191B6EAB4E00D062A2 /* PathSegment.m in Sources */,
 				8B8993111B6EAB3700D062A2 /* main.m in Sources */,
 			);

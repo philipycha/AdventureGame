@@ -4,6 +4,8 @@
 
 
 #import "GameController.h"
+#import "Player.h"
+#import "PathSegmentContent.h"
 
 @implementation GameController
 
@@ -12,9 +14,11 @@
     self = [super init];
     if (self) {
         // generate game path
-        
         _start = [self generatePath];
-        _player = [[Player alloc] init];
+        
+        Player *player = [[Player alloc] init];
+        _player.currentPosition = _start;
+        _player = player;
         
     }
     return self;
@@ -64,7 +68,22 @@
 
 
 -(PathSegmentContent *)randomContent {
-    return nil;
+    PathSegmentContent *generateContent;
+    
+    int i = arc4random_uniform(10);
+    
+    if (i > 6) {
+        self.player.wealth += 10;
+        generateContent.treasure = YES;
+        
+    } else if (i == 5 || i == 3) {
+        self.player.health -= 10;
+        generateContent.goblin = YES;
+        
+    } else
+        generateContent.nothing = YES;
+    
+    return generateContent;
 }
 
 
@@ -110,9 +129,9 @@
 
 -(void)playerStatus{
     
-    NSInteger health = self.player.health;
-    NSInteger wealth = self.player.wealth;
-    NSInteger distanceMoved = self.player.distanceMoved;
+    NSInteger health = [self getHealth];
+    NSInteger wealth = [self getWealth];
+    NSInteger distanceMoved = [self getDistanceMoved];
     
     NSLog(@"\n Health %ld --- Wealth %ld --- Distance Travelled %ld\n", health, wealth, distanceMoved);
     
@@ -124,12 +143,58 @@
             NSLog(@"you can move down the main road");
         }
         if (self.player.currentPosition.sideBranch != nil) {
-             NSLog(@"you can move down the side branch");
+            NSLog(@"you can move down the side branch");
         }
     }
     
     
 }
+
+- (void) askPlayerMove{
+    
+    InputCollector *input = [[InputCollector alloc] init];
+    
+    NSString *inputString = [input inputForPrompt:@"Where would you like to move?  type 'main' for main path or 'side' for side branch?"];
+    if ([inputString.lowercaseString isEqualToString: @"main"]) {
+        [self movePlayerMainPath];
+        
+    } else if ([inputString.lowercaseString isEqualToString: @"side"]) {
+        [self movePlayerSideBranch];
+        
+    } else {
+        NSLog(@"Cannot move in that direction..");
+    }
+}
+        
+
+               
+-(void)movePlayerMainPath {
+     
+    self.player.currentPosition = self.player.currentPosition.mainRoad;
+    
+    self.player.distanceMoved++;
+
+    [self randomContent];
+    
+    [self lineSpace];
+    
+}
+                   
+
+               
+               
+-(void)movePlayerSideBranch {
+    
+    self.player.currentPosition = self.player.currentPosition.sideBranch;
+    
+    self.player.distanceMoved++;
+    
+    [self randomContent];
+    
+    [self lineSpace];
+    
+}
+    
 
 -(NSInteger)getHealth {
     
@@ -150,7 +215,19 @@
     
 }
 
+-(BOOL)playerWin {
+    return (self.player.wealth >= 200);
+}
 
+-(BOOL)playerAlive {
+    return (self.player.health > 0);
+}
+
+-(void)lineSpace {
+    
+    return NSLog(@"--------------------------------------------------");
+    
+}
 
 
 
